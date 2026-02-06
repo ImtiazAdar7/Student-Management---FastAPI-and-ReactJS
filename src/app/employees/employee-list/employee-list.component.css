@@ -1,0 +1,143 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #e8f5e9;
+    margin: 0;
+    padding: 0;
+    color: #2e3d2f;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #1b5e20; /* deep green */
+    margin-top: 30px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 20px;
+    color: #2e7d32; /* medium green */
+    margin-bottom: 20px;
+}
+
+/* Add Employee Button */
+button[routerLink] {
+    display: block;
+    margin: 0 auto 25px auto;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #66bb6a, #43a047);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button[routerLink]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Error / Loading */
+div[ngIf] {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+}
+/* Table styling */
+table {
+    width: 90%;
+    margin: 30px auto 50px auto;
+    border-collapse: collapse; /* no borders */
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #ffffff; /* card-like background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: #333;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* soft floating card effect */
+}
+
+/* Table headers */
+th {
+    background-color: #404040; /* dark modern gray */
+    color: #ffffff;             /* white text */
+    font-weight: 700;           /* bolder headers */
+    padding: 16px 20px;
+    text-align: left;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.2s;
+}
+
+/* Header hover effect */
+th:hover {
+    background-color: #505050; /* slightly lighter on hover */
+    transform: translateY(-1px);
+}
+
+/* Table cells */
+td {
+    padding: 16px 20px;
+    color: #333;
+    font-size: 16px;    /* slightly bigger font */
+    font-weight: 600;   /* slightly bolder */
+    background-color: #fafafa; /* soft neutral row background */
+    transition: background-color 0.2s;
+}
+
+/* Row hover effect */
+tbody tr:hover {
+    background-color: #f0f0f0; /* light gray hover */
+    transform: translateY(-1px);
+}
+
+/* Action buttons */
+td button {
+    padding: 8px 14px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    font-size: 14px;
+}
+
+/* Update button */
+td button:first-child {
+    background: #4db6ac; /* teal */
+    color: white;
+}
+
+td button:first-child:hover {
+    background: #009688;
+    transform: translateY(-1px);
+}
+
+/* Delete button */
+td button:last-child {
+    background: #e57373; /* soft red */
+    color: white;
+}
+
+td button:last-child:hover {
+    background: #d32f2f;
+    transform: translateY(-1px);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    table, th, td {
+        font-size: 14px;
+    }
+
+    td button {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+}
