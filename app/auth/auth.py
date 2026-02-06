@@ -1,15 +1,7 @@
+from app.config.config import settings
 from passlib.context import CryptContext
 from datetime import datetime, timedelta
 import jwt
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-SECRET_KEY = os.getenv("SECRET_KEY")
-ALGORITHM = os.getenv("ALGORITHM")
-ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES"))
-REFRESH_TOKEN_EXPIRE_DAYS = int(os.getenv("REFRESH_TOKEN_EXPIRE_DAYS"))
 
 pwd_context = CryptContext(schemes=["argon2"], deprecated="auto")
 
@@ -21,15 +13,15 @@ def verify_password(plain_password, hashed_password):
 
 def create_access_token(data: dict):
     to_encode = data.copy()
-    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    expire = datetime.utcnow() + timedelta(minutes=settings.access_token_expire_minutes)
     to_encode.update({"exp": expire})
-    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+    return jwt.encode(to_encode, settings.secret_key, algorithm=settings.algorithm)
 
 def create_refresh_token(data: dict):
     to_encode = data.copy()
-    expire = datetime.utcnow() + timedelta(days=REFRESH_TOKEN_EXPIRE_DAYS)
+    expire = datetime.utcnow() + timedelta(days=settings.refresh_token_expire_days)
     to_encode.update({"exp": expire})
-    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+    return jwt.encode(to_encode, settings.secret_key, algorithm=settings.algorithm)
 
 def decode_token(token: str):
-    return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+    return jwt.decode(token, settings.secret_key, algorithms=[settings.algorithm])
