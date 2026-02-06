@@ -1,0 +1,367 @@
+/* =========================================================
+   🌈 ROOT THEME VARIABLES
+========================================================= */
+:root {
+  --primary: #7c3aed;        /* Purple */
+  --secondary: #06b6d4;      /* Cyan */
+  --accent: #22d3ee;
+  --raspberry: #e11d48;      /* Raspberry for homepage registration buttons */
+
+  --bg-main: linear-gradient(135deg, #0f172a, #1e293b);
+  --bg-card: rgba(255, 255, 255, 0.08);
+  --bg-glass: rgba(255, 255, 255, 0.12);
+
+  --text-main: #f8fafc;
+  --text-muted: #cbd5f5;
+
+  --radius: 14px;
+  --radius-sm: 10px;
+
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 30px rgba(124, 58, 237, 0.35);
+
+  --transition: all 0.25s ease;
+}
+
+/* =========================================================
+   🔥 RESET & BASE
+========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* =========================================================
+   🧭 NAVBAR
+========================================================= */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 32px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-soft);
+}
+
+.navbar a {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.navbar span {
+  color: var(--text-muted);
+}
+
+.navbar button {
+  padding: 10px 16px;
+}
+
+/* =========================================================
+   📦 CONTAINER
+========================================================= */
+.container {
+  max-width: 860px;
+  margin: 64px auto;
+  padding: 36px;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(20px);
+}
+
+/* =========================================================
+   📝 HEADINGS
+========================================================= */
+h1,
+h2,
+h3 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Center homepage title */
+.container h1:first-of-type {
+  text-align: center;
+}
+
+/* =========================================================
+   🧾 FORMS
+========================================================= */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+input,
+select {
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  font-size: 15px;
+  transition: var(--transition);
+}
+
+input::placeholder {
+  color: var(--text-muted);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.3);
+}
+
+/* =========================================================
+   🔘 BUTTONS (ORGANIZED & VARIANTS)
+========================================================= */
+button {
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  transition: var(--transition);
+  margin-top: 8px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* =========================================================
+   🔹 BUTTON VARIANTS (LOGIN / REGISTER / LOGOUT / HOME REGISTRATION)
+========================================================= */
+button.btn-login {
+  background: linear-gradient(135deg, #06b6d4, #22d3ee);
+  color: #0f172a;
+}
+
+button.btn-login:hover {
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
+}
+
+button.btn-register {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+}
+
+button.btn-register:hover {
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
+}
+
+button.btn-logout {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+button.btn-logout:hover {
+  box-shadow: 0 0 15px rgba(220, 38, 38, 0.6);
+}
+
+/* Home page registration buttons raspberry */
+.container > button.btn-register.home {
+  background: linear-gradient(135deg, var(--raspberry), #be123c);
+  color: white;
+}
+
+/* Secondary buttons */
+button.secondary,
+.back-btn {
+  background: transparent;
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+}
+
+button.secondary:hover,
+.back-btn:hover {
+  background: var(--secondary);
+  color: #0f172a;
+}
+
+/* =========================================================
+   👤 PROFILE CARD
+========================================================= */
+.profile-card {
+  padding: 24px;
+  margin-bottom: 24px;
+  background: var(--bg-glass);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.profile-card p {
+  margin-bottom: 10px;
+  color: var(--text-muted);
+}
+
+.profile-card strong {
+  color: var(--text-main);
+}
+
+/* =========================================================
+   📊 TABLE
+========================================================= */
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  background: var(--bg-glass);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 14px;
+  text-align: left;
+}
+
+thead {
+  background: linear-gradient(
+    90deg,
+    rgba(124, 58, 237, 0.4),
+    rgba(6, 182, 212, 0.4)
+  );
+}
+
+tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+td a {
+  color: var(--secondary);
+  font-weight: 600;
+  margin-right: 12px;
+  text-decoration: none;
+}
+
+td button {
+  display: inline-block;
+  width: auto;
+  padding: 8px 12px;
+  font-size: 14px;
+  margin: 4px 6px 4px 0;
+}
+
+td button:last-child {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+}
+
+/* =========================================================
+   🔹 FOOTER TEXT
+========================================================= */
+.footer-text {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 14px;
+  font-weight: 600; /* slightly bolder */
+  color: var(--text-muted);
+}
+
+.footer-text a {
+  color: var(--secondary);
+  text-decoration: none; /* remove underline */
+  margin-left: 6px;
+  transition: var(--transition);
+}
+
+.footer-text a:hover {
+  color: var(--accent);
+}
+
+/* =========================================================
+   📱 RESPONSIVE – TABLET
+========================================================= */
+@media (max-width: 900px) {
+  .container {
+    margin: 40px 20px;
+    padding: 28px;
+  }
+
+  .navbar {
+    padding: 14px 20px;
+  }
+}
+
+/* =========================================================
+   📱 RESPONSIVE – MOBILE
+========================================================= */
+@media (max-width: 600px) {
+  .container {
+    margin: 24px 14px;
+    padding: 22px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 14px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-glass);
+    padding: 12px;
+  }
+
+  td {
+    padding: 8px 0;
+  }
+}
