@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://student-management-fastapi-and-reactjs-2.onrender.com/api",
+  baseURL: "https://student-management-fastapi-and-reactjs-89hn.onrender.com/api",
 });
 
 API.interceptors.request.use((config) => {
@@ -39,3 +39,4 @@ export const updateStudentById = (id, data) => API.put(`/students/${id}`, data);
 export const deleteStudentById = (id) => API.delete(`/students/${id}`);
 
 export default API; // ✅ THIS FIXES THE ERROR
+
